@@ -1,6 +1,6 @@
 import { setupServer } from 'msw/node'
 import { postBillings } from "./resources/billing.resource"
-import { postOrders } from "./resources/order.resource"
+import { patchOrders, postOrders } from "./resources/order.resource"
 
 /**
  * モックしたいAPIを定義するファイル
@@ -8,6 +8,7 @@ import { postOrders } from "./resources/order.resource"
 const handlers = [
   postBillings,
   postOrders,
+  patchOrders,
 ]
 
 export const mockServer = setupServer(...handlers)
