@@ -5,12 +5,11 @@ import { rest } from 'msw'
  */
 export const postBillings = rest.post('https://api.yourmystar.jp/billings', (req, res, ctx) => {
   return res(
-    // Respond with a 200 status code
-    ctx.status(200),
+    ctx.status(201),
     ctx.body(JSON.stringify({
       "id": "auB7hhfm6U",
-      "orderId": "5XGNMiCS56",
-      "amount": 10000
+      "orderId": req.body['orderId'],
+      "amount": req.body['amount'],
     }))
   )
 })
